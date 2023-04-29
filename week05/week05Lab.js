@@ -52,12 +52,15 @@ console.log(
 
 /*
  * Using the person object from above and the given console.log for reference:
- * Step 1: Print to the console the following sentence (make sure to fill in the name, and year programmatically): "On July 20th 1969, Niel Armstrong was the first person to set foot on the Earth's moon."
+ * Step 1: Print to the console the following sentence (make sure to fill in the name, and year programmatically): 
+ * "On July 20th 1969, Niel Armstrong was the first person to set foot on the Earth's moon."
  * Notice that the provided console above is using template literals.
  *
  * ↓ YOUR CODE HERE ↓ */
 // "On July 20th 1969, Niel Armstrong was the first person to set foot on the Earth's moon."
-
+console.log(
+  `On July 20th, ${person.year}, ${person.firstname} ${person.lastname} was the first person to set foot on the Earth's moon.`
+  )
 /*-------------------------------------------------------*/
 // Question 2: Instance of a Class
 console.log(`--------------------------
@@ -85,7 +88,8 @@ greeting.hello()
  * Step 3: A greeting should print to the console
  *
  * ↓ YOUR CODE HERE ↓ */
-
+ let myGreeting = new Greeting('Christian', 'FL');
+ myGreeting.hello();
 /*-------------------------------------------------------*/
 // Question 3: myBook
 console.log(`--------------------------
@@ -114,8 +118,14 @@ class Book {
  * Step 7: Invoke the describe method for the yourBook instance. Make it print to the console also.
  *
  * ↓ YOUR CODE HERE ↓ */
-
-/*-------------------------------------------------------*/
+ let myBook = new Book('Pride and Prejudice', 'Jane Austen');
+ console.log('Book Title: ' + myBook.title);
+ console.log('Author: ' +myBook.author);
+ console.log(myBook.describe());
+ let yourBook = new Book('Alex Cross', 'James Patterson');
+ console.log(yourBook.describe());
+ 
+ /*-------------------------------------------------------*/
 // Question 4: Create a Class
 console.log(`--------------------------
 Question 4: Create a Class \n`)
@@ -129,13 +139,32 @@ Question 4: Create a Class \n`)
  *
  *
  * ↓ YOUR CODE HERE ↓ */
+ class Fruit {
+  constructor (name, color, taste) {
+    this.name = name;
+    this.color = color;
+    this.taste = taste;
+  }
 
-/*-------------------------------------------------------*/
+  description () {
+    return `A ${this.name} is ${this.color} and tastes ${this.taste}.`
+  }  
+ }
+
+ let fruit1 = new Fruit('lime', 'green', 'sour');
+ let fruit2 = new Fruit('banana', 'yellow', 'sweet');
+
+ console.log(fruit1.description());
+ console.log(fruit2.description());
+
+ /*-------------------------------------------------------*/
 // Question 5: Inheritance and Polymorphism
 console.log(`--------------------------
 Question 5: Inheritance and Polymorphism \n`)
 
-// Look at the provided code below. Notice how Student and Teacher inherit from the Person class through the use of the "extends" and "super" key words. Also, how Student has a redefined details method that is more appropriate than the details method it would have inherited from the Person super class...
+// Look at the provided code below. Notice how Student and Teacher inherit from the Person class through the use of 
+// the "extends" and "super" key words. Also, how Student has a redefined details method that is more appropriate than
+// the details method it would have inherited from the Person super class...
 
 class Person {
   constructor(name, role) {
@@ -173,6 +202,11 @@ class Teacher extends Person {
  * Step 4: Call the introduction method on your new teacher instance AND the details method, make sure that the results are printed to the console.
  *
  * ↓ YOUR CODE HERE ↓ */
+let student = new Student('Jacky', 'student');
+let teacher = new Teacher('Mr. Bean', 'teacher');
+
+console.log(student.introduction() + " " + student.details());
+console.log(teacher.introduction() + " " + teacher.details());
 
 /*-------------------------------------------------------*/
 // Question 6: Inheritance
@@ -187,7 +221,7 @@ class Parent {
   }
 
   details() {
-    console.log(`${this.name} Addams is ${this.age} years old.`)
+    console.log(`${this.name} Addams is ${this.age} years old.`);
   }
 }
 
@@ -199,19 +233,30 @@ class Parent {
  * HINT: You should be using vital key terms like extends and super
  *
  * ↓ YOUR CODE HERE ↓ */
-
+class Child extends Parent {
+  constructor(name, age) {
+    super(name, age)
+  }
+ }
+ let child = new Child('Pugsley', 10);
+ console.log(child.details());
 /*-------------------------------------------------------*/
+
 // Question 7: Put it all together
 console.log(`--------------------------
 Question 7: Put it all together \n`)
 
 /*
  * Step 1: Create a class called Movie with a constructor that takes in a title and director
- * Step 2: Create a method inside of Movie called "describe" that returns the following sentence (make sure to fill in the title and director programmatically): "The movie [movie name here] was directed by [director name here]."
+ * Step 2: Create a method inside of Movie called "describe" that returns the following sentence
+ *  (make sure to fill in the title and director programmatically): 
+ * "The movie [movie name here] was directed by [director name here]."
  * Step 3: Create another class called List with a constructor that is an empty array called movies
- * Step 4: Create a method called addMovie inside of List that will recieve a movie as a parameter and add it to the movies array
+ * Step 4: Create a method called addMovie inside of List that will recieve a movie as a parameter and 
+ *  add it to the movies array
  * Step 5: Create another method called displayMovies in the List class that will return all of the movie titles and directors using a for loop
- * Step 6: Create two instances of Movie called movie1, use "Jurassic Park" and "Steven Spielberg" as it's arguments AND movie2, use "How the Grinch stole Christmas" and "Ron Howard" as it's arguments
+ * Step 6: Create two instances of Movie called movie1, use "Jurassic Park" and "Steven Spielberg" as it's arguments 
+ * AND movie2, use "How the Grinch stole Christmas" and "Ron Howard" as it's arguments
  * Step 7: Invoke the describe method on movie1, make sure it prints to the console
  * Step 8: Invoke the desrcibe method on movie2, make sure it prints to the console
  * Step 9: Create an instance of List called list and add movie1 and movie2 to the movies array
@@ -219,4 +264,45 @@ Question 7: Put it all together \n`)
  *
  * ↓ YOUR CODE HERE ↓ */
 
+class Movie{
+  constructor(title, director) {
+    this.title = title;
+    this.director = director;
+  }
+
+  describe() {
+    return `The movie ${this.title} was directed by ${this.director}.`;
+  }
+}
+
+class List{
+  constructor(){
+    this.movies = [];
+  }
+
+  addMovie(movie) {
+    this.movies.push(movie);
+  }
+
+  displayMovies(){
+    let movieInfo = "";
+
+    for(let i=0; i < this.movies.length; i++){
+      movieInfo += `
+      ${this.movies[i].title} directed by ${this.movies[i].director} `;
+    }
+  }
+  }
+
+  let movie1 = new Movie('Jurassic Park', 'Steven Spielberg');
+  let movie2 = new Movie('How the Grinch Stole Christmas', 'Ron Howard');
+
+  console.log(movie1.describe());
+  console.log(movie2.describe());
+
+  let list = new List;
+  list.addMovie(movie1);
+  list.addMovie(movie2);
+
+  console.log(list.displayMovies());
 console.log(`-----------Finished------------`)

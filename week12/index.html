@@ -13,8 +13,61 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+
+  <!-- Add a Student -->
+  <form class="mx-4">
+    <h4>Add A New Student</h4>
+    <div>
+      <label for="fullName" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="fullName" aria-describedby="fullName" placeholder="Enter Full Name">
+    </div>
+
+    <div>
+      <label for="newAssignment" class="form-label">Research Assignment</label>
+      <input type="text" class="form-control" id="newAssignment" aria-describedby="newAssignment" placeholder="Plant/Animal">
+    </div>
+
+    <button id="submitStudent" class="btn btn-warning my-4" type="submit">Add New Student</button>
+    </div>
+  </form>
+
+  <!-- Update Student Info -->
+  <form class="mx-4">
+    <h4>Update Student Info</h4>
+    <div>
+      <label for="studentId" class="form-label">Student ID</label>
+      <input type="text" class="form-control" id="studentId" aria-describedby="studentId" placeholder="Enter Student Id">
+    </div>
+
+    <div>
+      <label for="studentName" class="form-label">Student Name</label>
+      <input type="text" class="form-control" id="studentName" aria-describedby="studentName" placeholder="Enter Full Name">
+    </div>
+
+    <div>
+      <label for="studentAssignment" class="form-label">Student Assignment</label>
+      <input type="text" class="form-control" id="studentAssignment" aria-describedby="studentAssignment" placeholder="Plant/Animal">
+    </div>
+
+    <button id="updateStudent" class="btn btn-warning my-4" type="submit">Update Student Info</button>
+    </div>
+  </form>
+
+  <body class="mx-4">
     <!-- Your HTML Code below here -->
+    <table class="table table-warning table-striped table-hover">
+      <h4 class="my-4">Current Student Listing</h4>
+      <thead>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Research Assignment</th>
+        <th>Delete Student</th>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
 
     <!-- ALL OF YOUR JQUERY/BOOTSTRAP/SCRIPT SETUP ARE BELOW HERE. 
   WE USE CDN'S (content delivery network) INSTEAD OF NODE_MODULES -->
@@ -39,5 +92,6 @@
     ></script>
     <!-- Our script -->
     <script src="./week12Lab.js"></script>
+    <script src="https://kit.fontawesome.com/c06407c9e8.js" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,0 +1,36 @@
+.navBar {
+    width: 100vw;
+    background-color: red;
+    color:white;
+    font-size: 20px;
+    padding: 3px;
+    font-weight:bold;
+    text-transform: uppercase;
+}
+
+.navBar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.navBar ul li {
+    list-style-type: none;
+    margin-right: 1em;
+}
+
+.navBar ul li:hover{
+    color:yellow;
+}
+
+.navBar ul li:active{
+    color:yellow;
+}
+ /* Welcome Section */
+ .welcome {
+    text-align:center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #eeeeee;
+    padding:1em;
+ }

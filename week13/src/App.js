@@ -72,13 +72,34 @@
 
 /* -- ALL YOUR COMPONENT/STYLE IMPORTS HERE -- */
 import './App.css'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import Navigation from './nav'
 import Section from './section'
+import Appointments from './appointments'
+
+let allCustomers = [
+  {
+    firstName: 'Shawn',
+    lastName: 'Lennon',
+    appointmentTime: '1:00pm',
+  },
+  {
+    firstName: 'Jewel',
+    lastName: 'Ronnie',
+    appointmentTime: '2:00pm',
+  },
+  {
+  firstName: 'Martie',
+  lastName: 'Francis',
+  appointmentTime: '3:00pm',
+  },
+]
 
 function App() {
   return <div className="App">
     <Navigation/>
     <Section/>
+    <Appointments customers = {allCustomers}/>
   </div>
 }
 
